@@ -1,0 +1,657 @@
+Multi.java
+
+import java.util.*;
+public class Multi{
+    public static void matrix(int firstMatrix[][], int secondMatrix[][])
+    {
+        int rows = 2, columns = 3;
+        int[][] sum = new int[rows][columns];
+        for(int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                sum[i][j] = firstMatrix[i][j] + secondMatrix[i][j];
+            }
+        }
+
+        // Displaying the result
+        System.out.println("Sum of two matrices is: ");
+        for(int[] row : sum) {
+            for (int column : row) {
+                System.out.print(column + "    ");
+            }
+            System.out.println();
+        
+      }
+    }
+    public static void main(String[] args) {
+        int rows = 2, columns = 3;
+        int[][] firstMatrix = { {2, 3, 4}, {5, 2, 3} };
+        int[][] secondMatrix = { {-4, 5, 3}, {5, 6, 3} };
+        matrix(firstMatrix,secondMatrix);
+
+        // Adding Two matrices
+        
+        }
+    }
+
+
+
+
+Matrix.java
+
+import java.util.Scanner;
+
+
+ class Matrix{
+    	public  void printArray() 
+    	{
+  	  int array[][]={{1,3,4},{2,4,3},{3,4,5}};    
+    
+//creating another matrix to store transpose of a matrix  
+int transpose[][]=new int[3][3];  //3 rows and 3 columns  
+    
+//Code to transpose a matrix  
+for(int i=0;i<3;i++){    
+for(int j=0;j<3;j++){    
+transpose[i][j]=array[j][i];  
+}    
+}    
+  
+System.out.println("Printing Matrix without transpose:");  
+for(int i=0;i<3;i++){    
+for(int j=0;j<3;j++){    
+System.out.print(array[i][j]+" ");    
+}    
+System.out.println();//new line    
+}    
+System.out.println("Printing Matrix After Transpose:");  
+for(int i=0;i<3;i++){    
+for(int j=0;j<3;j++){    
+System.out.print(transpose[i][j]+" ");    
+}    
+System.out.println();//new line    
+}
+}
+}
+
+
+ public class Even_Odd extends Matrix { 
+  
+    	// Print array method 
+ 	   public void printArray() 
+  	  { 
+     		   super.printArray();
+      		  int a[]={1,2,5,6,3,2};  
+System.out.println("Odd Numbers:");  
+for(int i=0;i<a.length;i++){  
+if(a[i]%2!=0){  
+System.out.println(a[i]);  
+}  
+ }  
+System.out.println("Even Numbers:");  
+for(int i=0;i<a.length;i++){  
+if(a[i]%2==0){  
+System.out.println(a[i]);  
+}  
+     }  
+    } 
+    public static void main(String[] args) 
+    { 
+        Even_Odd k = new Even_Odd();
+        k.printArray();
+    }
+}
+
+
+
+
+import java.util.Scanner;
+
+public class Multi
+
+{
+	Public void multii(
+	public static void main(String[] args) 
+	{
+		Scanner in=new Scanner(System.in);
+		while(true)
+		{
+			System.out.print("Enter the value of n for n-Square Matrix : ");
+			int n=in.nextInt();
+			if(n<=0)
+				System.out.println("invalid input");
+			else
+			{
+				int sum=0;
+				while(n!=0)
+				{
+					sum=sum+n*n;
+					n--;
+				}
+				System.out.println("The number square matrices are : " +sum);
+			}
+		}
+	}
+}
+
+
+
+
+4
+
+TwoOperands.java
+
+import java.util.Scanner;
+
+public class TwoOperands 
+{
+	public static void main(String[] args) 
+	{
+		Scanner in=new Scanner(System.in);
+		int ch=0;
+		do
+		{
+			System.out.println("Please enter value for first operand : ");
+			double a=in.nextDouble();
+			System.out.println("Please enter value for second operand : ");
+			double b=in.nextDouble();
+			System.out.println("Select the operation to be performed");
+			System.out.println("1. Addition");
+			System.out.println("2. Subtraction");
+			System.out.println("3. Multiplication");
+			System.out.println("4. Division");
+			System.out.println("5. Exit");
+			
+			System.out.print("Enter the option : ");
+			ch=in.nextInt();
+			switch(ch)
+			{
+			case 1:
+				System.out.println("The addition of two numbers is : " +(a+b));
+				break;
+			case 2:
+				System.out.println("The subtraction of two numbers is : " +(a-b));
+				break;
+			case 3:
+				System.out.println("The multiplication of two numbers is : " +(a*b));
+				break;
+			case 4:
+				System.out.println("The division of two numbers is : " +(a/b));
+				break;
+			case 5:
+				System.exit(0);
+			default:
+				System.out.println("Please enter valid option");
+				break;
+			}
+		}
+		while(ch!=5);
+	}
+}
+
+
+
+5.	
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+ 
+class GFG{
+ 
+static class Node
+{
+   	 int val;
+   	 ArrayList<Node> children;
+ 
+   	 public Node(int val) 
+   	 {
+    	    this.val = val;
+      	  this.children = new ArrayList<Node>();
+   	 }
+};
+ 
+static class Pair
+{
+    	Node first;
+  	  int second;
+ 
+   	 public Pair(Node node, int val)
+    {
+       	 this.first = node;
+        	this.second = val;
+    }
+}
+static int evenOddLevelDifference(Node root) 
+{
+     
+    // Store the sums of nodes at
+    // even and odd levels
+    	int evenSum = 0, oddSum = 0;
+ 
+    // Initialize a queue to store
+    // pair of node and level
+    	Queue<Pair> q = new LinkedList<>();
+ 
+
+   	 q.add(new Pair(root, 1));
+
+    	while (!q.isEmpty())
+    	{
+         
+        		Pair currNode = q.poll();
+ 
+        // Store the current level
+        		int currLevel = currNode.second;
+ 
+        // Store the current node value
+       		 int currVal = currNode.first.val;
+ 
+        // If current node
+        // level is odd
+      		  if (currLevel % 2 == 1)
+         
+            // Add to odd sum
+          			  oddSum += currVal;
+       		 else
+         
+            // Add to even sum
+           			 evenSum += currVal;
+ 
+        // Push all the children of current node
+        // with increasing current level by 1
+      	  for(Node child : currNode.first.children) 
+        {
+           		 q.add(new Pair(child, currLevel + 1));
+        }
+    }
+ 
+    // Return the difference
+   	 return (oddSum - evenSum);
+}
+ 
+// Driver Code
+public static void main(String[] args)
+{
+     
+    // Create the N-ary Tree
+   	 Node root = new Node(4);
+   	 root.children.add(new Node(2));
+    root.children.add(new Node(3));
+    root.children.add(new Node(-5));
+    root.children.get(0).children.add(new Node(-1));
+    root.children.get(0).children.add(new Node(3));
+    root.children.get(2).children.add(new Node(-2));
+    root.children.get(2).children.add(new Node(6));
+ 
+    	System.out.println(evenOddLevelDifference(root));
+}
+}
+
+
+	
+6.
+
+Lexicographical.java
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Lexicographical 
+{
+	public static void main(String[] args) 
+	{
+		Scanner in=new Scanner(System.in);
+		String[] ls=new String[5];
+		System.out.println("Enter five strings : ");
+		System.out.print("First : ");
+		ls[0]=in.next();
+		System.out.print("Second : ");
+		ls[1]=in.next();
+		System.out.print("Third : ");
+		ls[2]=in.next();
+		System.out.print("Fourth : ");
+		ls[3]=in.next();
+		System.out.print("Fifth : ");
+		ls[4]=in.next();
+		Arrays.sort(ls);
+		for(int i=0;i<5;i++)
+		{
+			System.out.println(ls[i]);
+		}
+	}
+}
+
+
+
+
+
+ BinarySearchExample.java
+
+import java.util.Scanner;
+
+Public class BinarySearchExample{  
+ public static void binarySearch(int arr[], int first, int last, int key){  
+ 	int mid = (first + last)/2;  
+ while( first <= last ){  
+     		if ( arr[mid] < key ){  
+   		  first = mid + 1;     
+ 		  }else if ( arr[mid] == key ){  
+   	  System.out.println("Element is found at index: " + mid);  
+     		break;  
+   		   }else{  
+        		 last = mid - 1;  
+    		  }  
+    			  mid = (first + last)/2;  
+  		 }  
+  			 if ( first > last ){  
+     			 System.out.println("Element is not found!");  
+   	}  
+ }  
+ public static void main(String args[]){  
+       	 int arr[] = {10,20,30,40,50};  
+       	 int key = 30;  
+      	  int last=arr.length-1;  
+        	binarySearch(arr,0,last,key);     
+ 	}  
+}  
+
+
+
+
+8
+
+
+HelperService.java
+
+import java.util.Scanner;
+class HelperService {
+
+   		 private String formatNumber(int value) {
+       	 return String.format("%d", value);
+    }
+
+   		 private String formatNumber(double value) {
+       	 return String.format("%.3f", value);
+   	 }
+
+  		  private String formatNumber(String value) {
+       	 return String.format("%.2f", Double.parseDouble(value));
+    }
+
+   		 public static void main(String[] args) {
+        		HelperService hs = new HelperService();
+       		 System.out.println(hs.formatNumber(500));
+       		 System.out.println(hs.formatNumber(89.9934));
+       		 System.out.println(hs.formatNumber("550"));
+    }
+}
+
+
+
+
+
+9
+
+MultipleInheritanceUsingInterface.java
+import java.util.Scanner;
+interface vehicleone{
+		int  speed=90;
+		public void distance();
+}
+
+interface vehicletwo{
+		int distance=100;
+		public void speed();
+}
+
+class Vehicle  implements vehicleone,vehicletwo{
+	public void distance(){
+		int  distance=speed*100; 
+		System.out.println("distance travelled is "+distance);
+	}
+	public void speed(){
+		int speed=distance/100;
+	}
+}
+
+class MultipleInheritanceUsingInterface{
+	public static void main(String args[]){
+		System.out.println("Vehicle");
+		obj.distance();
+		obj.speed();
+	}
+}
+interface vehicleone{
+	int  speed=90;
+	public void distance();
+}
+
+interface vehicletwo{
+	int distance=100;
+	public void speed();
+}
+
+class Vehicle  implements vehicleone,vehicletwo{
+	public void distance(){
+		int  distance=speed*100; 
+		System.out.println("distance travelled is "+distance);
+	}
+	public void speed(){
+		int speed=distance/100;
+	}
+}
+
+class MultipleInheritanceUsingInterface{
+	public static void main(String args[]){
+		System.out.println("Vehicle");
+		obj.distance();
+		obj.speed();
+	}
+}
+
+
+Console Output
+distance travelled is 9000
+
+
+10.	
+
+
+
+Pyramid.java
+
+
+import java.util.Scanner;
+
+public class Pyramid 
+{
+	public static void main(String[] args) 
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.print("Enter the number of levels for the number pyramid : ");
+		int levels=in.nextInt();
+		for(int row=1;row<levels+1;row++)
+		{
+			for(int space=row;space<levels;space++)
+			{
+				System.out.print("  ");
+			}
+			for(int col=row;col<=2*row-1;col++)
+			{
+				System.out.print(col+" ");
+			}
+			for(int k=2*row-2;k>=row;k--)
+			{
+				System.out.print(k+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+
+11.	
+
+
+
+
+DigitSum.java
+
+import java.util.Scanner;
+
+public class DigitSum 
+{
+	public static void main(String[] args) 
+	{
+		Scanner in=new Scanner(System.in);
+		System.out.print("Enter the number to find digitsum : ");
+		int num=in.nextInt();
+		int sum=num;
+		int fin=0;
+		int fin1=0;
+		String temp=Integer.toString(num);
+		int len=temp.length();
+			for(int i=0;i<len;i++)
+			{
+				System.out.println("1 : " +sum%10);
+				fin=fin+sum%10;
+				if(Integer.toString(fin).length()!=1)
+				{
+					for(int j=0;j<=Integer.toString(fin).length();j++)
+					{
+						System.out.println("2 : " +fin%10);
+						fin1=fin1+fin%10;
+						fin=fin/10;
+					}
+					fin=fin1;
+				}
+				sum=sum/10;
+			}
+		System.out.println("3 : " +fin);
+	}
+}
+
+
+
+
+
+12
+
+
+Main.java
+
+
+
+import java.util.Scanner;
+//import java.util.concurrent.Callable;
+
+	interface A
+{
+	interface B
+{
+	public int callMe(int sum);
+}
+}
+
+
+public class Main implements A
+	{
+		int fin1=0;
+		int sum=0;
+		
+		public static void main(String[] args)
+		{
+			Scanner in=new Scanner(System.in);
+			System.out.print("Enter the number to be tested as happy or unhappy : ");
+			int num=(int)Math.pow(in.nextInt(), 2);
+			System.out.println(num);
+			Main p=new Main();
+			while(num>9)
+			{
+				System.out.println(p.callMe(num));
+				num=p.callMe(num);
+			}
+			if(num==1)
+				System.out.println("Its a happy number : )");
+			else
+				System.out.println("Its unhappy :(");		
+		}
+	   public 	int callMe(int sum)
+		{
+			int fin=0;
+			String temp=Integer.toString(sum);
+			int len=temp.length();
+
+				for(int i=0;i<len;i++)
+				{
+					
+					System.out.println("1 : " +(int)Math.pow(sum%10,2));
+					fin=fin+(int)Math.pow(sum%10,2);
+					sum=sum/10;
+				}
+				sum=fin;
+				return sum;
+		}
+	}
+
+
+
+
+13
+
+
+UniquePassword.java
+
+import java.util.Scanner;
+
+public class UniquePassword 
+{
+	public static void main(String[] args) 
+	{
+		Scanner s=new Scanner(System.in);
+		String name;
+		String pw=new String();
+		long ph;int rno,rem,sum=0;
+		System.out.println("Enter the name : ");
+		name=s.next();
+		System.out.println("Enter the room no : ");
+		rno=s.nextInt();
+		int rno1=rno;
+		System.out.println("Enter the phone number : ");
+		ph=s.nextLong();
+		char []sym={')','!','@','#','$','%','^','&','*','('};
+		do
+		{
+			while(rno!=0)
+			{
+				rem=rno%10;
+				sum=sum+rem;
+				rno=rno/10;
+			}
+			if(sum>=10)
+			{
+				rno=sum;
+				sum=0;
+			}
+		}while(rno!=0);
+		
+		int c=rno1/100;
+		int len=name.length();
+		int pos=0;
+		for(int i=0;i<len;i++)
+		{
+			if(c==i)
+			{
+				pos=i;
+				System.out.println("Password is : ");
+			}
+		}
+		pw=""+name.charAt(0)+(ph%10)+sum+sym[c]+name.charAt(len-1);
+		System.out.println(pw);
+	}
+}
+
+
